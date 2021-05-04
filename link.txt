@@ -1,0 +1,17 @@
+			GET					POST
+/user	
+			/join				/join						redirect:/user/login							
+			/login				/login						redirect:/post/list
+								/logout						redirect:/post/list
+			/info											로그인안했다면 	redirect:/user/login										
+															비밀번호확인안했다면 redirect:/user/password_check
+															두 조건 통과하면 내정보 forward
+			/password_check		/password_check				로그인안했다면 	redirect:/user/login
+															비밀번호 확인 후 redirect:/user/info
+								/resign						로그인안했다면 	redirect:/user/login		
+															회원 탈퇴 ->  로그아웃 -> redirect:/post/list
+/post		/list
+			/write				/write						redirect:/post/read?pno=새글번호, (redirect:/post/list)
+			/read											
+								/update						redirect:/post/read?pno=글번호, (redirect:/post/list)
+								/delete						redirect:/post/list
